@@ -1,11 +1,8 @@
-from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from users.models import CustomUser
 
 from .models import Category, Comment, Genre, Review, Title
-
-CustomUser = get_user_model()
 
 
 class CategorySerializer(serializers.ModelSerializer):
