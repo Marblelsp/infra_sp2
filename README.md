@@ -1,3 +1,4 @@
+# YaMDb
 Проект YaMDb собирает отзывы (Review) пользователей на произведения (Title). Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий (Category) может быть расширен (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»).
 
 Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
@@ -40,10 +41,13 @@
 Установка:
 
 Для полноценной работы сериса неообходимо установить зависимости:
+```python
 pip install -r requirements.txt
+```
 
 далее указать свои данные для работы с базой данных Postgresql в файле api_yamdb/.env:
 
+```python
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=yamdb
 POSTGRES_DB=yamdb
@@ -51,15 +55,27 @@ POSTGRES_USER=your_postgre_user
 POSTGRES_PASSWORD=your_postgre_password
 DB_HOST=db
 DB_PORT=5432
+```
 
-после чего выполнить миграции и запустить проект: python manage.py migrate --run-syncdb, python manage.py runserver
-
+после чего выполнить миграции и запустить проект:
+```python
+python manage.py migrate --run-syncdb, 
+python manage.py runserver
+```
 Для работы с сервисом Docker необходимо:
 
-1) выполнить миграции: docker-compose exec web python manage.py makemigrations users;
-                       docker-compose exec web python manage.py makemigrations yamdb;
-                       docker-compose exec web python manage.py migrate --noinput
-2) Коллецию статики: docker-compose exec web python manage.py collectstatic --no-input;
-3) Запустить контейнер: docker-compose up -d --build
-
+1) выполнить миграции:
+```python
+docker-compose exec web python manage.py makemigrations users;
+docker-compose exec web python manage.py makemigrations yamdb;
+docker-compose exec web python manage.py migrate --noinput
+```
+2) Коллецию статики:
+```python
+docker-compose exec web python manage.py collectstatic --no-input;
+```
+3) Запустить контейнер:
+```python
+docker-compose up -d --build
+```
 После чего перейдите по адресу: http://127.0.0.1/admin/;
