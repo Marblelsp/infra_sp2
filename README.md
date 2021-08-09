@@ -59,20 +59,20 @@ DB_PORT=5432
 
 после чего выполнить миграции и запустить проект:
 ```python
-python manage.py migrate --run-syncdb, 
+python manage.py migrate --run-syncdb
 python manage.py runserver
 ```
 Для работы с сервисом Docker необходимо:
 
 1) выполнить миграции:
 ```python
-docker-compose exec web python manage.py makemigrations users;
-docker-compose exec web python manage.py makemigrations yamdb;
+docker-compose exec web python manage.py makemigrations users
+docker-compose exec web python manage.py makemigrations yamdb
 docker-compose exec web python manage.py migrate --noinput
 ```
 2) Коллецию статики:
 ```python
-docker-compose exec web python manage.py collectstatic --no-input;
+docker-compose exec web python manage.py collectstatic --no-input
 ```
 3) Запустить контейнер:
 ```python
